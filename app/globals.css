@@ -40,3 +40,19 @@
     transform: translateY(0);
   }
 }
+.mini-icon{
+  width: 100%;
+}
+.card-data-wrapper{
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(5, 1fr);
+}
+.card-data{
+  width: auto;
+  padding: 2px;
+  text-align: center;
+}
+.card-value{
+  font-weight: 700;
+}
