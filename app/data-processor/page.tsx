@@ -1,5 +1,3 @@
-// TODO: Duplicate or move this file outside the `_examples` folder to make it a route
-
 import { createServerActionClient } from '@supabase/auth-helpers-nextjs'
 import { revalidatePath } from 'next/cache'
 import { cookies } from 'next/headers'
@@ -19,25 +17,57 @@ export default async function ServerAction() {
       // https://github.com/vercel/next.js/blob/canary/examples/with-supabase/README.md
       //6
 
-      const { data: mostPlayed } = await supabase.rpc("most_played")
 
+
+      //Longest Game
+      const { data: longestGame } = await supabase.rpc("longest_game")
       await supabase
       .from('crystal-cards')
-      .update({ card_data: mostPlayed })
-      .eq('id', 7)
+      .update({ card_data: longestGame })
+      .eq('id', 2)
 
-      //3
+      //Pentakills
       const {data: pentaKills} = await supabase
       .from('players')
       .select(`champion, playername, teamname`)
       .eq('pentakills', 1)
-      
+
       await supabase
       .from('crystal-cards')
       .update({ card_data: pentaKills })
       .eq('id', 3)
 
-      const { data: mostFirstBloods } = await supabase.rpc("player_most_firstblood")
+      //Most Dragons
+      const {data: mostDragons} = await supabase.rpc('most_dragons').limit(11)
+      await supabase
+      .from('crystal-cards')
+      .update({ card_data: mostDragons })
+      .eq('id', 4)
+
+
+      //Champion picked in most roles
+      const {data: mostRoles} = await supabase.rpc('most_roles').limit(11)
+      await supabase
+      .from('crystal-cards')
+      .update({ card_data: mostRoles })
+      .eq('id', 6)
+
+      //Most played champion
+      const { data: mostPlayed } = await supabase.rpc("most_played").limit(11)
+      await supabase
+      .from('crystal-cards')
+      .update({ card_data: mostPlayed })
+      .eq('id', 7)
+
+      //Most banned champion
+      const { data: mostBanned } = await supabase.rpc("most_banned").limit(11)
+      await supabase
+      .from('crystal-cards')
+      .update({ card_data: mostBanned })
+      .eq('id', 8)
+
+
+      const { data: mostFirstBloods } = await supabase.rpc("player_most_firstblood").limit(11)
 
       await supabase
       .from('crystal-cards')
@@ -46,18 +76,31 @@ export default async function ServerAction() {
 
 
 
-      const { data: playerMostKills } = await supabase.rpc("player_most_kills")
+      const { data: playerMostKills } = await supabase.rpc("player_most_kills").limit(11)
 
       await supabase
       .from('crystal-cards')
       .update({ card_data: playerMostKills })
       .eq('id', 12)
-      const { data: mostDeaths } = await supabase.rpc("most_deaths")
+
+
+      //Champion Most Deaths
+      const { data: mostDeaths } = await supabase.rpc("most_deaths").limit(11)
 
       await supabase
       .from('crystal-cards')
       .update({ card_data: mostDeaths })
       .eq('id', 9)
+
+
+      //Shortest Game
+      const { data: shortestGame } = await supabase.rpc("shortest_game")
+      await supabase
+      .from('crystal-cards')
+      .update({ card_data: shortestGame })
+      .eq('id', 17)
+
+
   return (
     <div>
 
