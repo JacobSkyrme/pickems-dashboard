@@ -56,3 +56,7 @@
 .card-value{
   font-weight: 700;
 }
+.card-main-img{
+  height: 300px;
+  object-fit: cover;
+}
