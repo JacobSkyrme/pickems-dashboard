@@ -46,7 +46,7 @@
 .card-data-wrapper{
   display: grid;
   gap: 2px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 .card-data{
   width: auto;
@@ -59,4 +59,11 @@
 .card-main-img{
   height: 300px;
   object-fit: cover;
+}
+.dragon-icon-large{
+  width: 100%;
+  text-align: center;
+}
+.dragon-icon-small{
+  margin: 0 auto;
 }
