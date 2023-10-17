@@ -9,7 +9,6 @@ export default async function Index() {
 
   const { data: crystalCards } = await supabase.from("crystal-cards").select().order('id', { ascending: true })
 
-  console.log()
 
   
   return (
