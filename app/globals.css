@@ -56,13 +56,24 @@
   gap: 2px;
   grid-template-columns: repeat(1, 1fr);
 }
+
+.card-data-player-champion-row{
+  width: auto;
+  padding: 2px;
+  text-align: center;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 16px 32px 1fr 32px auto;
+  align-items: center;
+}
+
 .card-data-row{
   width: auto;
   padding: 2px;
   text-align: center;
   display: grid;
   gap: 8px;
-  grid-template-columns: 28px 32px 1fr 1fr;
+  grid-template-columns: 16px 32px 1fr auto;
   align-items: center;
 }
 .card-data-game-row{
@@ -71,21 +82,66 @@
   text-align: center;
   display: grid;
   gap: 8px;
-  grid-template-columns: 28px 40px 20px 40px 1fr;
+  grid-template-columns: 16px 40px 20px 40px auto;
   align-items: center;
 }
-
+.card-data-reverse-sweep{
+  grid-template-columns: 40px 20px 40px auto;
+}
 .card-value{
   font-weight: 700;
 }
-.card-main-img{
-  height: 100%;
+.card-main-big{
+  height: 300px;
   max-height: 300px;
   object-fit: cover;
 }
-.card-main-team{
-  max-width: 80%;
-  margin: 1rem 0;
+
+.player-top-wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 2fr auto;
+}
+.player-main-big{
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  grid-row: 2;
+  grid-column: 1;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.player-mini-icon{
+  width: 50px;
+  height: auto;
+  margin-right: 20px;
+  padding: 5px;
+  margin-left: 3px;
+}
+.champion-list-mini-icon{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.player-text{
+  grid-column: 1/5;
+  grid-row: 1;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+}
+.champion-list{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column: 2/4;
+  grid-row: 2;
+}
+
+.card-main-img{
+  height: 200px;
+  max-height: 300px;
+  object-fit: cover;
+  padding: 1rem 0 ;
 }
 .dragon-icon-large{
   width: 100%;
@@ -122,4 +178,16 @@
 .mini-icon{
   width: 100%;
   padding: 2px;
+}
+
+
+.gold{
+  color: 	#d4af37;
+}
+.silver
+{
+  color: 	#c0c0c0
+}
+.bronze{
+  color: #cd7f32;
 }
