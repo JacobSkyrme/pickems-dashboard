@@ -3,14 +3,12 @@
 export default function PlayerCard({ crystal_data }) {
 
 
-    const trimmedData = crystal_data.card_data ? crystal_data.card_data.slice(1) : null
     const percentage = crystal_data.id === 10 ? "%" : ""
-    console.log(crystal_data)
     return (
         <>
 
 <div className="card-top-wrapper">
-        <h2 className="mb-4 text-2xl font-extrabold text-center leading-none tracking-tight text-gray-400 md:text-3xl lg:text-4xl dark:text-white">{crystal_data.card_name}</h2>
+        <h2 className="mb-4 text-2xl font-extrabold text-center md:text-3xl lg:text-3xl dark:text-white">{crystal_data.card_name}</h2>
         {crystal_data.card_data ? <img className="card-main-img" src={`/static/players/${crystal_data.card_data[0].playername.toLowerCase()}.jpg`}></img> : null}
             
             <div className="main-text-overlay">
@@ -18,12 +16,17 @@ export default function PlayerCard({ crystal_data }) {
             </div>
         </div>
 
-            <div className="card-data-wrapper">
-                {trimmedData?.map((card_data, index) => (
-                    <div className="card-data">
-                        
-                        <span className="card-value"> {card_data.playername} {card_data.value}</span>
-                    </div>
+            <div className="card-data-row-wrapper">
+                {crystal_data.card_data?.map((card_data, index) => (
+                    <div className="card-data-row">
+                    <span className="card-value text-left">{index+1}:</span>
+                    {card_data.teamname ? <img className="mini-icon" alt={card_data.teamname} src={`/static/team_logos/${card_data.teamname.toLowerCase()}.jpg`}/> : null}
+                    
+                    <span className="card-value text-left">{card_data.playername}</span>
+                    
+                    {card_data.champion ? <img className="mini-icon" alt={card_data.champion} src={`static/icons/${card_data.champion.replace("'", "").replace(" ", "")}_0.jpg`}/> : null}
+                    <span className="card-value text-right">{card_data.value}</span>
+                </div>
 
                 ))}
 

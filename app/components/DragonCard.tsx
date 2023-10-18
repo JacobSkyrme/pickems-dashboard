@@ -17,17 +17,17 @@ export default function DragonCard(props) {
     const DragonIcon = (icon) =>{
         switch(icon.dragon){
             case "Infernals":
-                return <InfernalIcon class={icon.class} width={icon.width} height={icon.height}></InfernalIcon>
+                return <InfernalIcon className={icon.class} width={icon.width} height={icon.height}></InfernalIcon>
             case "Mountains":
-                return <MountainIcon class={icon.class} width={icon.width} height={icon.height}></MountainIcon>
+                return <MountainIcon className={icon.class} width={icon.width} height={icon.height}></MountainIcon>
             case "Clouds":
-                return <CloudIcon class={icon.class} width={icon.width} height={icon.height}></CloudIcon>
+                return <CloudIcon className={icon.class} width={icon.width} height={icon.height}></CloudIcon>
             case "Oceans":
-                return <OceanIcon class={icon.class} width={icon.width} height={icon.height}></OceanIcon>
+                return <OceanIcon className={icon.class} width={icon.width} height={icon.height}></OceanIcon>
             case "Chemtechs":
-                return <ChemtechIcon class={icon.class} width={icon.width} height={icon.height}></ChemtechIcon>
+                return <ChemtechIcon className={icon.class} width={icon.width} height={icon.height}></ChemtechIcon>
             case "Hextechs":
-                return <HextechIcon class={icon.class} width={icon.width} height={icon.height}></HextechIcon>
+                return <HextechIcon className={icon.class} width={icon.width} height={icon.height}></HextechIcon>
             default:
                 return <></>
         }
@@ -40,7 +40,7 @@ export default function DragonCard(props) {
 
    
 <div className="card-top-wrapper">
-        <h2 className="mb-4 text-2xl font-extrabold text-center leading-none tracking-tight text-gray-400 md:text-3xl lg:text-4xl dark:text-white">{crystal_data.card_name}</h2>
+        <h2 className="mb-4 text-2xl font-extrabold text-center md:text-3xl lg:text-3xl dark:text-white">{crystal_data.card_name}</h2>
         {crystal_data.card_data ? <DragonIcon class="dragon-icon-large" dragon={crystal_data.card_data[0].dragon} width={200} height={200}></DragonIcon> : null}
             
             <div className="main-text-overlay">
@@ -49,15 +49,13 @@ export default function DragonCard(props) {
         </div>
 
 
-            <div className="card-data-wrapper">
+            <div className="grid grid-cols-1 lg:grid-cols-5 gap-2">
                 {trimmedData?.map((card_data, index) => (
                     <div className="card-data">
                         <DragonIcon class="dragon-icon-small" dragon={card_data.dragon} width={40} height={40}></DragonIcon>
                         <span className="card-value"> {card_data.value}</span>                     
                     </div>
-
                 ))}
-
             </div>
         </>
     )

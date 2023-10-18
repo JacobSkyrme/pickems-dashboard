@@ -2,6 +2,7 @@
 
 import ChampionCard from "./Champion"
 import DragonCard from "./DragonCard"
+import DurationCard from "./DurationCard"
 import PlayerCard from "./PlayerCard"
 
 export default function CrystalCard({ crystal_data }) {
@@ -12,9 +13,11 @@ export default function CrystalCard({ crystal_data }) {
   else if(crystal_data.card_type === "DRAGON"){
     return <DragonCard crystal_data={crystal_data}></DragonCard>
   }
+  else if(crystal_data.card_type === "DURATION"){
+    return <DurationCard crystal_data={crystal_data}></DurationCard>
+  }
   else if(crystal_data.card_type === "PLAYER"){
     return <PlayerCard crystal_data={crystal_data}></PlayerCard>
-
   }
     else {
     return (

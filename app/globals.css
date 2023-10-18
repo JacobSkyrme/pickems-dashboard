@@ -40,29 +40,57 @@
     transform: translateY(0);
   }
 }
-.mini-icon{
-  width: 100%;
-}
+
 .card-data-wrapper{
   display: grid;
   gap: 2px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 .card-data{
   width: auto;
   padding: 2px;
   text-align: center;
 }
+.card-data-row-wrapper{
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(1, 1fr);
+}
+.card-data-row{
+  width: auto;
+  padding: 2px;
+  text-align: center;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 28px 32px 1fr 1fr;
+  align-items: center;
+}
+.card-data-game-row{
+  width: auto;
+  padding: 2px;
+  text-align: center;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 28px 40px 20px 40px 1fr;
+  align-items: center;
+}
+
 .card-value{
   font-weight: 700;
 }
 .card-main-img{
-  height: 300px;
+  height: 100%;
+  max-height: 300px;
   object-fit: cover;
+}
+.card-main-team{
+  max-width: 80%;
+  margin: 1rem 0;
 }
 .dragon-icon-large{
   width: 100%;
   text-align: center;
+  margin-bottom: 1rem;
 }
 .dragon-icon-small{
   margin: 0 auto;
@@ -78,4 +106,20 @@
 .card-top-wrapper{
   position: relative;
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-win{
+  border: 2px solid #27ae60;
+  border-radius: 2px;
+}
+.team-loss{
+  border: 2px solid #e74c3c;
+  border-radius: 2px;
+}
+.mini-icon{
+  width: 100%;
+  padding: 2px;
 }
