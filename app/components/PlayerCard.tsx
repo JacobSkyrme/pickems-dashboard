@@ -24,7 +24,7 @@ export default function PlayerCard({ crystal_data }) {
         return(
         <div className="champion-list"> 
             {data.champion_list?.split(',').map((champion_list) =>  (
-                <img className="mini-icon" alt={champion_list} src={`static/icons/${(champion_list.replace("'", "")).replace(' ', "")}_0.jpg`}/>
+                <img className="champion-list-mini-icon" alt={champion_list} src={`static/icons/${(champion_list.replace("'", "")).replace(' ', "")}_0.jpg`}/>
             ))}
         </div>)
     }
@@ -44,19 +44,21 @@ export default function PlayerCard({ crystal_data }) {
             position = data.index + 1;
         }
         
-        if(data.props.value === first){
+        if(data.props.value === first || data.index < 3){
             return(
               
         <div className="player-top-wrapper">
+
             {crystal_data.card_data ? <img className="player-main-big" src={`/static/players/${data.props.playername.toLowerCase()}.jpg`}></img> : null}
 
             <div className="player-text">
-            {data.props.teamname ? <img className="player-mini-icon" alt={data.props.teamname} src={`/static/team_logos/${data.props.teamname.toLowerCase()}.jpg`}/> : null}
+                <span className={"text-left ml-3 text-2xl font-bold" + (position === 1 ? " gold" : (position === 2 ? " silver" : position === 3 ? " bronze" : ""))}>{position}</span>
+                {data.props.teamname ? <img className="player-mini-icon" alt={data.props.teamname} src={`/static/team_logos/${data.props.teamname.toLowerCase()}.jpg`}/> : null}
 
                 <h2 className="mt-1 mb-1 text-2xl font-bold text-center dark:text-white">{data.props.playername} - {data.props.value}</h2>
             </div>
             
-            {data.props.champion ? <img className="player-main-icon" alt={data.props.champion} src={`static/icons/${data.props.champion.replace("'", "")}_0.jpg`}/> : null}
+            {data.props.champion ? <img className="player-champion-icon" alt={data.props.champion} src={`static/splash/${data.props.champion.replace("'", "")}_0.jpg`}/> : null}
 
             {data.props.champion_list ? <ChampionList champion_list={data.props.champion_list}></ChampionList> : null}
 
