@@ -5,6 +5,7 @@ import DragonCard from "./DragonCard"
 import DurationCard from "./DurationCard"
 import PlayerCard from "./PlayerCard"
 import ReverseSweep from "./ReverseSweep"
+import TeamCard from "./TeamCard"
 
 export default function CrystalCard({ crystal_data }) {
 
@@ -22,6 +23,9 @@ export default function CrystalCard({ crystal_data }) {
   }
   else if(crystal_data.card_type === "REVERSESWEEP"){
     return <ReverseSweep crystal_data={crystal_data}></ReverseSweep>
+  }
+  else if(crystal_data.card_type === "TEAM"){
+    return <TeamCard crystal_data={crystal_data}></TeamCard>
   }
   else if(crystal_data.card_type === "SIMPLE"){
     return (
