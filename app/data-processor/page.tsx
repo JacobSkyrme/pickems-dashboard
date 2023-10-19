@@ -119,7 +119,11 @@ export default async function ServerAction() {
       .update({ card_data: shortestGame })
       .eq('id', 17)
 
-
+      const { data: teamMostChampions } = await supabase.rpc("team_most_unique_champions").limit(5)
+      await supabase
+      .from('crystal-cards')
+      .update({ card_data: teamMostChampions })
+      .eq('id', 20)
   return (
     <div>
 

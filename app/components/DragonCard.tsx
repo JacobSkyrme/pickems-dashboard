@@ -51,7 +51,7 @@ export default function DragonCard(props) {
 
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-2">
                 {trimmedData?.map((card_data, index) => (
-                    <div className="card-data">
+                    <div className="card-data" key={index}>
                         <DragonIcon class="dragon-icon-small" dragon={card_data.dragon} width={40} height={40}></DragonIcon>
                         <span className="card-value"> {card_data.value}</span>                     
                     </div>

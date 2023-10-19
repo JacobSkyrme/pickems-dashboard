@@ -2,7 +2,6 @@
 
 export default function DurationCard({ crystal_data }) {
 
-    console.log(crystal_data)
     const percentage = crystal_data.id === 10 ? "%" : ""
 
     const first = crystal_data.card_data[0]
@@ -28,7 +27,7 @@ export default function DurationCard({ crystal_data }) {
         <div className="card-data-row-wrapper">
 
             {crystal_data.card_data?.map((card_data, index) => (
-                    <div className="card-data-game-row">
+                    <div className="card-data-game-row" key={index}>
                         <span className="card-value text-left">{index+1}:</span>
 
                         {card_data.team1_name ? <img className={card_data.team1_result === 1 ? "mini-icon team-win" : "team-icon team-loss"} alt={card_data.team1_name} src={`/static/team_logos/${card_data.team1_name.toLowerCase()}.jpg`}/> : null}

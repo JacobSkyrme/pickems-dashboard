@@ -20,11 +20,13 @@ export default function PlayerCard({ crystal_data }) {
 
 
     const ChampionList = (data) =>{
-        console.log(data)
         return(
         <div className="champion-list"> 
-            {data.champion_list?.split(',').map((champion_list) =>  (
-                <img className="champion-list-mini-icon" alt={champion_list} src={`static/icons/${(champion_list.replace("'", "")).replace(' ', "")}_0.jpg`}/>
+            {data.champion_list?.split(',').map((champion_list, index) =>  (
+                <>
+                <img className="champion-list-mini-icon" key={index} alt={champion_list} src={`static/icons/${(champion_list.replace("'", "")).replace(" ", "") }_0.jpg`}/>
+                
+                </>
             ))}
         </div>)
     }
@@ -45,6 +47,8 @@ export default function PlayerCard({ crystal_data }) {
         }
         
         if(data.props.value === first || data.index < 3){
+
+
             return(
               
         <div className="player-top-wrapper">
@@ -94,7 +98,7 @@ export default function PlayerCard({ crystal_data }) {
 
 
                 {crystal_data.card_data?.map((card_data, index) => (
-                    <CardData props={card_data} index={index}></CardData>
+                    <CardData props={card_data} index={index} key={index}></CardData>
                 ))}
 
             </div>

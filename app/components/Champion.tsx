@@ -20,8 +20,8 @@ export default function ChampionCard({ crystal_data }) {
 
             <div className="card-data-wrapper">
 
-            {trimmedData?.map((card_data) => (
-                    <div className="card-data">
+            {trimmedData?.map((card_data, index) => (
+                    <div className="card-data" key={index}>
                         {card_data.champion ? <img className="mini-icon" alt={card_data.champion} src={`/static/icons/${card_data.champion.replace("'", "").replace(" ", "")}_0.jpg`}></img> : null}
                         
                         <span className="card-value"> {card_data.value}{percentage}</span>

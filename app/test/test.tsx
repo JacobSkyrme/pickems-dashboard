@@ -7,7 +7,6 @@ export default async function Test() {
 
   const { data: players } = await supabase.from("players").select();
 
-  console.log(players)
 
   return (
     <ul className="my-auto text-foreground">
