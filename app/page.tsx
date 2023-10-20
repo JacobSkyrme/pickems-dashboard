@@ -19,7 +19,7 @@ export default async function Index() {
 
         <ul className="grid grid-cols-1 xl:grid-cols-5 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(0, 5).map((crystalCard) => (
-            <li className="relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
+            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
               <CrystalCard crystal_data={crystalCard}></CrystalCard>
             </li>
           ))}
@@ -28,7 +28,7 @@ export default async function Index() {
 
         <ul className="grid grid-cols-1 xl:grid-cols-5 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(5, 10).map((crystalCard) => (
-            <li className="relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
+            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
               <CrystalCard crystal_data={crystalCard}></CrystalCard>
             </li>
           ))}
@@ -37,7 +37,7 @@ export default async function Index() {
 
         <ul className="grid grid-cols-1 xl:grid-cols-5 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(10, 15).map((crystalCard) => (
-            <li className="relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
+            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
               <CrystalCard crystal_data={crystalCard}></CrystalCard>
             </li>
           ))}
@@ -47,7 +47,7 @@ export default async function Index() {
 
         <ul className="grid grid-cols-1 xl:grid-cols-5 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(15, 20).map((crystalCard) => (
-            <li className="relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
+            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
               <CrystalCard crystal_data={crystalCard}></CrystalCard>
             </li>
           ))}
