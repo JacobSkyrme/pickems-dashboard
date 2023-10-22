@@ -40,25 +40,28 @@
     transform: translateY(0);
   }
 }
-
+.role-icon{
+  width: 24px;
+  padding: 2px;
+}
 .card-data-wrapper{
   display: grid;
-  gap: 3px;
+  gap: 1px;
   grid-template-columns: repeat(3, 1fr);
 }
 .card-data{
   width: auto;
-  padding: 3px;
   text-align: center;
+  position: relative;
 }
 .card-data-row-wrapper{
   display: grid;
-  gap: 3px;
   grid-template-columns: repeat(1, 1fr);
 }
+
 .player-champion-icon{
   grid-column: 3/6;
-  height: 150px;
+  height: 180px;
   width: 100%;
   object-fit: cover;
 }
@@ -67,29 +70,66 @@
   padding: 2px;
   text-align: center;
   display: grid;
-  gap: 8px;
-  grid-template-columns: 16px 32px 1fr auto;
+  gap: 6px;
+  grid-template-columns: 24px 32px 1fr auto;
   align-items: center;
 
+}
+.big-medal {
+  padding: 4px;
+  width: 40px;
 }
 .card-data-player-champion-row{
   width: auto;
   padding: 2px;
   text-align: center;
   display: grid;
-  gap: 8px;
-  grid-template-columns: 16px 32px 1fr 32px auto;
+  gap: 6px;
+  grid-template-columns: 24px 32px 1fr 32px auto;
   align-items: center;
 }
-
+.champion-details{
+  display: grid;
+  grid-template-columns: 24px 1fr;
+}
 .card-data-row{
   width: auto;
   padding: 2px;
   text-align: center;
   display: grid;
   gap: 8px;
-  grid-template-columns: 16px 32px 1fr auto;
+  grid-template-columns: 24px 32px 1fr auto;
   align-items: center;
+}
+.champion-position-order, .champion-value-wrapper{
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.7);
+}
+.champion-position-order{
+  top: 0;
+  padding: 2px;
+  left: 0;
+}
+.champion-position-value{
+  width: auto;
+  height: auto;
+  padding: 2px;
+  min-width: 24px;
+  font-size: 0.75rem;
+}
+.champion-value{
+  padding: 3px 5px;
+}
+.champion-value-wrapper{
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto;
 }
 .card-data-game-row{
   width: auto;
@@ -97,7 +137,7 @@
   text-align: center;
   display: grid;
   gap: 8px;
-  grid-template-columns: 16px 40px 20px 40px auto;
+  grid-template-columns: 24px 40px 20px 40px auto;
   align-items: center;
 }
 .card-data-reverse-sweep{
@@ -118,8 +158,49 @@
   grid-template-rows: 1fr auto;
   background-color: black;
 }
+
+
+.kda-item-wrapper{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #333;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.kda-item-label{
+  padding: 3px 8px;
+  width: 100%;
+  font-weight: 500;
+}
+.kda-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column: 3/6;
+  grid-template-rows: 1fr 1fr;
+  max-height: 180px;
+  align-items: center;
+}
+
+.kda-item-value{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.kda-label{
+  font-size: 1.2rem;
+  font-weight: 500;
+  height: 100%;
+}
+
+.kda-label-wrapper{
+  grid-column: 1/4;
+  grid-row: 2;
+  
+}
+
 .player-main-big{
-  height: 150px;
+  height: 180px;
   -o-object-fit: cover;
   object-fit: cover;
   grid-row: 2;
@@ -128,10 +209,10 @@
 }
 
 .player-mini-icon{
-  width: 50px;
+  width: 40px;
   height: auto;
   margin-right: 4px;
-  margin-left: 8px;
+  margin-left: 4px;
   padding: 5px;
 }
 .champion-list-mini-icon{
@@ -152,6 +233,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-column: 3/6;
   grid-row: 2;
+  max-height: 180px;
 }
 
 .card-main-img{
@@ -194,9 +276,11 @@
 }
 .mini-icon{
   width: 100%;
-  padding: 2px;
 }
+.champion-icon-wrapper{
+  position: relative;
 
+}
 
 .gold{
   color: 	#d4af37;

@@ -33,30 +33,43 @@ export default async function ServerAction() {
       .update({ card_data: mostDragons })
       .eq('id', 4)
 
+      const { data: baronSteals } = await supabase.from('baron_steals').select()
+      await supabase
+      .from('crystal-cards')
+      .update({ card_data: baronSteals })
+      .eq('id', 5)
+
+      const {data: teamMostBarons} = await supabase.rpc('team_most_barons')
+
+
+      await supabase
+      .from('crystal-cards')
+      .update({ card_data: teamMostBarons })
+      .eq('id', 18)
 
       //Champion picked in most roles
-      const {data: mostRoles} = await supabase.rpc('most_roles').limit(10)
+      const {data: mostRoles} = await supabase.rpc('most_roles').limit(12)
       await supabase
       .from('crystal-cards')
       .update({ card_data: mostRoles })
       .eq('id', 6)
 
       //Most played champion
-      const { data: mostPlayed } = await supabase.rpc("most_played").limit(10)
+      const { data: mostPlayed } = await supabase.rpc("most_played").limit(12)
       await supabase
       .from('crystal-cards')
       .update({ card_data: mostPlayed })
       .eq('id', 7)
 
       //Most banned champion
-      const { data: mostBanned } = await supabase.rpc("most_banned").limit(10)
+      const { data: mostBanned } = await supabase.rpc("most_banned").limit(12)
       await supabase
       .from('crystal-cards')
       .update({ card_data: mostBanned })
       .eq('id', 8)
 
       //Champion Most Deaths
-      const { data: mostDeaths } = await supabase.rpc("most_deaths").limit(10)
+      const { data: mostDeaths } = await supabase.rpc("most_deaths").limit(12)
 
       await supabase
       .from('crystal-cards')
@@ -64,7 +77,7 @@ export default async function ServerAction() {
       .eq('id', 9)
 
       //Champion Most Deaths
-      const { data: highestWinrate } = await supabase.rpc("highest_winrate").limit(10)
+      const { data: highestWinrate } = await supabase.rpc("highest_winrate").limit(12)
       await supabase
       .from('crystal-cards')
       .update({ card_data: highestWinrate })
@@ -118,6 +131,8 @@ export default async function ServerAction() {
       .from('crystal-cards')
       .update({ card_data: shortestGame })
       .eq('id', 17)
+      
+
 
       const { data: teamMostChampions } = await supabase.rpc("team_most_unique_champions").limit(5)
       await supabase

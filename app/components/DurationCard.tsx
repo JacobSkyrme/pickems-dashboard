@@ -1,5 +1,7 @@
 'use client'
 
+import PositionMedals from "./PositionMedals";
+
 export default function DurationCard({ crystal_data }) {
 
     const percentage = crystal_data.id === 10 ? "%" : ""
@@ -28,8 +30,7 @@ export default function DurationCard({ crystal_data }) {
 
             {crystal_data.card_data?.map((card_data, index) => (
                     <div className="card-data-game-row" key={index}>
-                        <span className="card-value text-left">{index+1}:</span>
-
+                        <span className={"card-value text-center"}>{index+1 < 4 ? <PositionMedals position={index+1}></PositionMedals> : index+1}</span>
                         {card_data.team1_name ? <img className={card_data.team1_result === 1 ? "mini-icon team-win" : "team-icon team-loss"} alt={card_data.team1_name} src={`/static/team_logos/${card_data.team1_name.toLowerCase()}.jpg`}/> : null}
                         <span className="card-value text-center">vs</span>
                         {card_data.team2_name ? <img className={card_data.team2_result === 1 ? "mini-icon team-win" : "team-icon team-loss"} alt={card_data.team2_name} src={`/static/team_logos/${card_data.team2_name.toLowerCase()}.jpg`}/> : null}

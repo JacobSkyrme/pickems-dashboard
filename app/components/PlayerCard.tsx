@@ -1,5 +1,7 @@
 'use client'
 
+import PositionMedals from "./PositionMedals";
+
 
 
 export default function PlayerCard({ crystal_data }) {
@@ -31,7 +33,39 @@ export default function PlayerCard({ crystal_data }) {
         </div>)
     }
 
+
+    const KdaInfo = (data) => {
+        return(
+            <div className="kda-list">
+
+                    <div className="kda-item-wrapper">
+                        <span className="kda-item-label">K</span>
+                        <span className="kda-item-value">{data.props.total_kills ? data.props.total_kills : 0}</span>
+                    </div>
+
+
+                    <div className="kda-item-wrapper">
+                        <span className="kda-item-label">D</span>
+                        <span className="kda-item-value">{data.props.total_deaths ? data.props.total_deaths : 0}</span>
+                    </div>
+
+
+                    <div className="kda-item-wrapper">
+                        <span className="kda-item-label">A</span>
+                        <span className="kda-item-value">{data.props.total_assists ? data.props.total_assists : 0}</span>
+                    </div>
+
+                    <div className="kda-item-wrapper kda-label-wrapper">
+                        <span className="kda-item-value">KDA - {data.props.value ? data.props.value : 0}</span>
+                    </div>
+                
+            </div> 
+
+        )
+    }
+
     const CardData = (data) => {
+        console.log(data)
 
 
         if(data.index === 0){
@@ -45,8 +79,7 @@ export default function PlayerCard({ crystal_data }) {
             last = data.props.value
             position = data.index + 1;
         }
-        
-        if((data.props.value === first || data.index < 3) && crystal_data.card_name !== "Total Pentakills"){
+        if((data.props.value === first || data.index < 3) && (crystal_data.card_name !== "Total Pentakills" && crystal_data.card_name !== "Baron Steals" )){
 
 
             return(
@@ -56,15 +89,18 @@ export default function PlayerCard({ crystal_data }) {
             {crystal_data.card_data ? <img className="player-main-big" src={`/static/players/${data.props.playername.toLowerCase()}.jpg`}></img> : null}
 
             <div className="player-text">
-                <span className={"text-left ml-3 text-2xl font-bold" + (position === 1 ? " gold" : (position === 2 ? " silver" : position === 3 ? " bronze" : ""))}>{position}</span>
+            <PositionMedals big={true} position={position}></PositionMedals>
                 {data.props.teamname ? <img className="player-mini-icon" alt={data.props.teamname} src={`/static/team_logos/${data.props.teamname.toLowerCase()}.jpg`}/> : null}
-
                 <h2 className="mt-1 mb-1 text-2xl font-bold text-center dark:text-white">{data.props.playername} - {data.props.value}</h2>
             </div>
             
+
+
+
             {data.props.champion ? <img className="player-champion-icon" alt={data.props.champion} src={`static/splash/${data.props.champion.replace("'", "")}_0.jpg`}/> : null}
 
             {data.props.champion_list ? <ChampionList champion_list={data.props.champion_list}></ChampionList> : null}
+            {crystal_data.card_name ===  "Highest KDA" ? <KdaInfo props={data.props}></KdaInfo> : null}
 
             </div>
             )
@@ -73,12 +109,13 @@ export default function PlayerCard({ crystal_data }) {
             return(
                 <div className={data.props.champion ? "card-data-player-champion-row" : "card-data-row"}>
         
-                <span className={"card-value text-left" + (position === 1 ? " gold" : (position === 2 ? " silver" : position === 3 ? " bronze" : ""))}>{position}</span>
+
+                <span className={"card-value text-center"}>{crystal_data.card_name !== "Total Pentakills" && crystal_data.card_name !== "Baron Steals" ? (position < 4 ? <PositionMedals position={position}></PositionMedals> : position) : null}</span>
                 {data.props.teamname ? <img className="mini-icon" alt={data.props.teamname} src={`/static/team_logos/${data.props.teamname.toLowerCase()}.jpg`}/> : null}
                 
                 <span className="card-value text-left">{tags.find(tag => tag.name === data.props.teamname)?.tag} {data.props.playername}</span>
                 
-                {data.props.champion ? <img className="mini-icon" alt={data.props.champion} src={`static/icons/${data.props.champion.replace("'", "").replace(" ", "")}_0.jpg`}/> : null}
+                {data.props.champion ? <img className="mini-icon" alt={data.props.champion} src={`/static/icons/${data.props.champion.replace("'", "").replace(" ", "")}_0.jpg`}/> : null}
                 <span className="card-value text-right">{crystal_data.value_title !== "Pentakill" ? data.props.value : null}</span>
             </div>
         )
@@ -95,7 +132,7 @@ export default function PlayerCard({ crystal_data }) {
         <>
             <div className="card-data-row-wrapper">
                 <h2 className="mb-4 text-2xl font-extrabold text-center md:text-3xl lg:text-3xl dark:text-white">{crystal_data.card_name}</h2>
-                {crystal_data.card_name === "Total Pentakills" ?
+                {crystal_data.card_name === "Total Pentakills" || crystal_data.card_name ===  "Baron Steals" ?
                 <div className="card-top-wrapper">
 
 <svg className="card-main-img" viewBox="0 0 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,7 +146,7 @@ export default function PlayerCard({ crystal_data }) {
 
             </div> : null}
 
-                {crystal_data.card_data?.map((card_data, index) => (
+                {crystal_data.card_data.map((card_data, index) => (
                     <CardData props={card_data} index={index} key={index}></CardData>
                 ))}
 

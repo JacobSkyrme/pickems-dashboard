@@ -4,7 +4,6 @@
 export default function CardTop(props){
 
     const {value, image} = props
-
     return (
 
         <div className="card-top-wrapper">
@@ -16,7 +15,8 @@ export default function CardTop(props){
                 </svg>
             }
             <div className="main-text-overlay">
-                <h2 className="mt-1 mb-1 text-2xl font-bold text-center dark:text-white">{value}</h2></div>
+                <h2 className="mt-1 mb-1 text-2xl font-bold text-center dark:text-white">{value}</h2>
+            </div>
         </div>
     )
 }
