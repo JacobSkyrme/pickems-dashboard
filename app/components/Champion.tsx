@@ -5,7 +5,6 @@ import PositionMedals from "./PositionMedals"
 export default function ChampionCard({ crystal_data }) {
 
 
-    const trimmedData = crystal_data.card_data ? crystal_data.card_data.slice(1) : null
     const percentage = crystal_data.id === 10 ? "%" : ""
     let position = 1;
     let last = 0;
@@ -81,8 +80,18 @@ export default function ChampionCard({ crystal_data }) {
 
             <div className="card-data-wrapper">
 
+<<<<<<< Updated upstream
             {crystal_data.card_data?.map((card_data, index) => (
                     <CardData props={card_data} index={index}></CardData>
+=======
+            {crystal_data.card_data?.map((card_data, index: number) => (
+                    <div className="card-data" key={index}>
+                        {card_data.champion ? <img className="mini-icon" alt={card_data.champion} src={`/static/icons/${card_data.champion.replace("'", "").replace(" ", "")}_0.jpg`}></img> : null}
+                        
+                        <span className="card-value"> {card_data.value}{percentage}</span>
+                    </div>
+
+>>>>>>> Stashed changes
                 ))}
             </div>
         </>
