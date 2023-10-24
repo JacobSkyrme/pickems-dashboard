@@ -53,6 +53,11 @@ export default async function Index() {
         </ul>
 
       </div>
+      
+      <p className="mb-3 text-gray-500 dark:text-gray-400">Copyright © 2023 - Pickems Tracker</p>
+    
+      <p className="mb-3 text-gray-500 dark:text-gray-400">Pickems Tracker is not endorsed by Riot Games.</p>
+      <p className="mb-3 text-gray-500 dark:text-gray-400">This data is an estimation of the pickems results. There may be inaccuracies  in the calculation and data submission process.</p>
     </div>
   );
 }

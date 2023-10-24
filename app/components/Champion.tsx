@@ -52,7 +52,7 @@ const ChampionCard = props => {
                             </>
                         ))}
 
-                        {data.props.position_list ? null : <span className="card-value text-right champion-value">{`${data.props.value}${percentage}`}</span>}
+                        {data.props.position_list ? null : <span className="card-value text-right champion-value">{Math.round(data.props.value)}{percentage}{data.props.wins ? ` - ${data.props.wins}/${data.props.losses}` : null}</span>}
 
                     </div>
                 </div>

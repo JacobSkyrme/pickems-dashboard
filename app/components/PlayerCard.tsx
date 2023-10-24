@@ -29,9 +29,9 @@ const PlayerCard = props => {
         return(
         <div className="champion-list"> 
             {data.champion_list?.split(',').map((champion_list, index:number) =>  (
-                <>
+                <div>
                     <img className="champion-list-mini-icon" key={index} alt={champion_list} src={`/static/icons/${champion_list.replace("'", "").replace(/\s/g, "")}_0.jpg`}></img>
-                </>
+                </div>
             ))}
         </div>)
     }
