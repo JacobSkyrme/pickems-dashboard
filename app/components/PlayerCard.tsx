@@ -2,10 +2,10 @@
 
 import PositionMedals from "./PositionMedals";
 
+const PlayerCard = props => {
 
-
-export default function PlayerCard({ crystal_data }) {
-
+    const {crystal_data} = props
+    
     const tags = [
         {name: "Movistar R7", tag: "R7"},
         {name: "GAM Esports", tag: "GAM"},
@@ -155,3 +155,8 @@ export default function PlayerCard({ crystal_data }) {
     )
 }
 
+
+ 
+
+
+export default PlayerCard

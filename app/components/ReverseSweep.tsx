@@ -1,6 +1,10 @@
 'use client'
 
-export default function ReverseSweep({ crystal_data }) {
+const ReverseSweep = props => {
+
+    const {crystal_data} = props
+
+
     return (
         <>
         <div className="card-top-wrapper">
@@ -29,3 +33,6 @@ export default function ReverseSweep({ crystal_data }) {
         </>
     )
 }
+
+
+export default ReverseSweep

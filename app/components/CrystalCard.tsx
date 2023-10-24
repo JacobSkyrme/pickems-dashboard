@@ -7,7 +7,10 @@ import PlayerCard from "./PlayerCard"
 import ReverseSweep from "./ReverseSweep"
 import TeamCard from "./TeamCard"
 
-export default function CrystalCard({ crystal_data }) {
+
+const CrystalCard = props => {
+
+  const {crystal_data} = props
 
   if (crystal_data.card_type === "CHAMPION") {
     return <ChampionCard crystal_data={crystal_data}></ChampionCard>
@@ -35,9 +38,6 @@ export default function CrystalCard({ crystal_data }) {
       </svg>
       {crystal_data.card_name}
       <div className="card-data-wrapper">
-
-
-
       </div>
       </>   
     )
@@ -50,14 +50,12 @@ export default function CrystalCard({ crystal_data }) {
         </svg>
         {crystal_data.card_name}
         <div className="card-data-wrapper">
-
-
-
         </div>
       </>
     )
 
   }
-
-
 }
+
+
+export default CrystalCard;

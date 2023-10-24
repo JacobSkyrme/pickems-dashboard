@@ -1,7 +1,6 @@
 import CrystalCard from "@/app/components/CrystalCard";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import Image from 'next/image'
 
 export default async function Index() {
   const cookieStore = cookies()

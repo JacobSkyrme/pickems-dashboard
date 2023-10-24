@@ -7,14 +7,14 @@ import InfernalIcon from "./svgs/InfernalIcon"
 import MountainIcon from "./svgs/MountainIcon"
 import OceanIcon from "./svgs/OceanIcon"
 
-export default function DragonCard(props) {
+const DragonCard = props => {
 
+    const {crystal_data} = props
 
-    const {crystal_data} = props;
     //const trimmedData = crystal_data.card_data ? crystal_data.card_data.slice(1) : null
     const trimmedData = crystal_data.card_data ? crystal_data.card_data.slice(1) : null
 
-    const DragonIcon = (icon) =>{
+    const DragonIcon = (icon: { dragon: string; class: string; width: number; height: number }) =>{
         switch(icon.dragon){
             case "Infernals":
                 return <InfernalIcon className={icon.class} width={icon.width} height={icon.height}></InfernalIcon>
@@ -60,4 +60,6 @@ export default function DragonCard(props) {
         </>
     )
 }
+
+export default DragonCard
 

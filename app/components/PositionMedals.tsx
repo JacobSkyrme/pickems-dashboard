@@ -1,7 +1,7 @@
 
 
 
-export default function PositionMedals(props){
+const PositionMedals = props =>{
 
     const {position, big} = props
 
@@ -21,3 +21,5 @@ export default function PositionMedals(props){
         )
     }
 }
+
+export default PositionMedals

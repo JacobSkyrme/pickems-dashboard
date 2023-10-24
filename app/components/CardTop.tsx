@@ -1,7 +1,7 @@
 
 
 
-export default function CardTop(props){
+export default function CardTop(props: { value: any; image: any }){
 
     const {value, image} = props
     return (
@@ -19,4 +19,4 @@ export default function CardTop(props){
             </div>
         </div>
     )
-}
+        }

@@ -1,14 +1,19 @@
 'use client'
 
+import DragonCard from "./DragonCard";
 import PositionMedals from "./PositionMedals";
 
-export default function DurationCard({ crystal_data }) {
 
-    const percentage = crystal_data.id === 10 ? "%" : ""
+
+
+const DurationCard = (props: { crystal_data: any; }) => {
+
+    const {crystal_data} = props
+
 
     const first = crystal_data.card_data[0]
 
-    const length = (gamelength) => {
+    const length = (gamelength: number) => {
         let minutes = Math.floor(gamelength / 60);
         let extraSeconds = gamelength % 60;
         return `${minutes< 10 ? `0${minutes}` : minutes}:${extraSeconds< 10 ? `0${extraSeconds}` : extraSeconds}`
@@ -28,7 +33,7 @@ export default function DurationCard({ crystal_data }) {
 
         <div className="card-data-row-wrapper">
 
-            {crystal_data.card_data?.map((card_data, index) => (
+            {crystal_data.card_data?.map((card_data, index: number) => (
                     <div className="card-data-game-row" key={index}>
                         <span className={"card-value text-center"}>{index+1 < 4 ? <PositionMedals position={index+1}></PositionMedals> : index+1}</span>
                         {card_data.team1_name ? <img className={card_data.team1_result === 1 ? "mini-icon team-win" : "team-icon team-loss"} alt={card_data.team1_name} src={`/static/team_logos/${card_data.team1_name.toLowerCase()}.jpg`}/> : null}
@@ -44,3 +49,6 @@ export default function DurationCard({ crystal_data }) {
         </>
     )
 }
+
+
+export default DragonCard
