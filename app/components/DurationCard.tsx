@@ -1,5 +1,6 @@
 'use client'
 
+import CardTop from "./CardTop";
 import DragonCard from "./DragonCard";
 import PositionMedals from "./PositionMedals";
 
@@ -21,15 +22,15 @@ const DurationCard = (props: { crystal_data: any; }) => {
 
 
     return (
-        <>
-        <div className="card-top-wrapper">
+        <div className="card-data-row-wrapper">
         <h2 className="mb-4 text-2xl font-extrabold text-center md:text-3xl lg:text-3xl dark:text-white">{crystal_data.card_name}</h2>
-            {first ? <img className="card-main-img" src={`/static/team_logos/${first.team1_result === 1 ? first.team1_name.toLowerCase() : first.team2_name.toLowerCase()}.jpg`}></img> : null}
-            
-            <div className="main-text-overlay">
-                <h2 className="mt-1 mb-1 text-2xl font-bold text-center dark:text-white">{first ? `${first.team1_result === 1 ? first.team1_name : first.team2_name} - ${length(first.gamelength)}` : null}</h2>
-            </div>
-        </div>
+        
+        
+        <CardTop 
+            image={`/static/team_logos/${first.team1_result === 1 ? first.team1_name.toLowerCase() : first.team2_name.toLowerCase()}.jpg`}
+            value={first ? `${first.team1_result === 1 ? first.team1_name : first.team2_name} - ${length(first.gamelength)}` : null}
+        ></CardTop>
+        
 
         <div className="card-data-row-wrapper">
 
@@ -46,9 +47,9 @@ const DurationCard = (props: { crystal_data: any; }) => {
 
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 
 
-export default DragonCard
+export default DurationCard

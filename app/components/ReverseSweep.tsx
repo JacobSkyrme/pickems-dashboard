@@ -19,7 +19,7 @@ const ReverseSweep = props => {
 
         <div className="card-data-row-wrapper">
 
-            {crystal_data.card_data?.map((card_data, index) => (
+            {crystal_data.card_data?.map((card_data, index: number) => (
                     <div className="card-data-game-row card-data-reverse-sweep" key={index}>
                         {card_data.team1_name ? <img className="mini-icon team-win" alt={card_data.team1_name} src={`/static/team_logos/${card_data.team1_name.toLowerCase()}.jpg`}/> : null}
                         <span className="card-value text-center">vs</span>

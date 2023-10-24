@@ -1,10 +1,13 @@
 
 
+type positionMedals = {
+    position: number;
+    big: boolean;
+}
 
-const PositionMedals = props =>{
+const PositionMedals = (props: positionMedals) =>{
 
     const {position, big} = props
-
 
     if(position === 1){
         return <img src="/static/medals/first.svg" className={big === true ? "medal big-medal" : "medal"}/>

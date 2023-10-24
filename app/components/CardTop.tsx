@@ -1,9 +1,16 @@
 
 
+type CardTop = {
+    value: string | number | null;
+    image: string;
+}
 
-export default function CardTop(props: { value: any; image: any }){
+export default function CardTop(props: CardTop){
 
+    
     const {value, image} = props
+    
+    console.log(value)
     return (
 
         <div className="card-top-wrapper">
@@ -19,4 +26,4 @@ export default function CardTop(props: { value: any; image: any }){
             </div>
         </div>
     )
-        }
+}

@@ -18,16 +18,19 @@ const PlayerCard = props => {
     ]
     let position = 1;
     let last = 0;
-    let first;
+    let first: string|number;
 
 
     const ChampionList = (data) =>{
+
+
+
+
         return(
         <div className="champion-list"> 
-            {data.champion_list?.split(',').map((champion_list, index) =>  (
+            {data.champion_list?.split(',').map((champion_list, index:number) =>  (
                 <>
-                <img className="champion-list-mini-icon" key={index} alt={champion_list} src={`static/icons/${(champion_list.replace("'", "")).replace(" ", "") }_0.jpg`}/>
-                
+                    <img className="champion-list-mini-icon" key={index} alt={champion_list} src={`/static/icons/${champion_list.replace("'", "").replace(/\s/g, "")}_0.jpg`}></img>
                 </>
             ))}
         </div>)
@@ -65,7 +68,6 @@ const PlayerCard = props => {
     }
 
     const CardData = (data) => {
-        console.log(data)
 
 
         if(data.index === 0){
@@ -94,10 +96,7 @@ const PlayerCard = props => {
                 <h2 className="mt-1 mb-1 text-2xl font-bold text-center dark:text-white">{data.props.playername} - {data.props.value}</h2>
             </div>
             
-
-
-
-            {data.props.champion ? <img className="player-champion-icon" alt={data.props.champion} src={`static/splash/${data.props.champion.replace("'", "")}_0.jpg`}/> : null}
+                        {data.props.champion ? <img className="player-champion-icon" alt={data.props.champion} src={`static/splash/${data.props.champion.replace("'", "")}_0.jpg`}/> : null}
 
             {data.props.champion_list ? <ChampionList champion_list={data.props.champion_list}></ChampionList> : null}
             {crystal_data.card_name ===  "Highest KDA" ? <KdaInfo props={data.props}></KdaInfo> : null}
