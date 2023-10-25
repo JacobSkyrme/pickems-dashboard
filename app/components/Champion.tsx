@@ -67,7 +67,7 @@ const ChampionCard = (props: {
             <div className="card-data" key={data.index}>
                 <div className="champion-icon-wrapper">
                     <div className={position < 4 ? "champion-position-order champion-position-medal" : "champion-position-order champion-position-value"}><span className={"card-value text-left"}>{position < 4 ? <PositionMedals position={position}></PositionMedals> : position}</span></div>
-                    {data.props.champion ? <img className="mini-icon" alt={data.props.champion} src={`/static/icons/${data.props.champion.replace("'", "").replace(" ", "")}_0.jpg`}></img> : null}
+                    {data.props.champion ? <img className="mini-icon" alt={data.props.champion} src={`/static/icons/${data.props.champion.replace("'", "").replace(" ", "").toLowerCase()}_0.jpg`}></img> : null}
 
                     <div className="champion-value-wrapper">
 
