@@ -53,7 +53,7 @@ const TeamCard = (props: {
                         <span className="card-value text-left">{data.props.teamname}</span>
                         <span className="card-value  text-right"> {data.props.value}</span>
                     </div>
-                    d
+
                 </div>
             </>
 

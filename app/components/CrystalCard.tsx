@@ -8,7 +8,18 @@ import ReverseSweep from "./ReverseSweep"
 import TeamCard from "./TeamCard"
 
 
-const CrystalCard = props => {
+const CrystalCard = (props: {
+  crystal_data: {
+      card_name: string;
+      card_type: string;
+      created_at: string;
+      id: number;
+      value_title?: string;
+      card_data: [any]
+  }
+}) => {
+
+  console.log(props)
 
   const {crystal_data} = props
 
@@ -22,7 +33,7 @@ const CrystalCard = props => {
     return <DurationCard crystal_data={crystal_data}></DurationCard>
   }
   else if(crystal_data.card_type === "PLAYER"){
-    return <PlayerCard crystal_data={crystal_data}></PlayerCard>
+    return <PlayerCard crystal_data={crystal_data}></PlayerCard>  
   }
   else if(crystal_data.card_type === "REVERSESWEEP"){
     return <ReverseSweep crystal_data={crystal_data}></ReverseSweep>
