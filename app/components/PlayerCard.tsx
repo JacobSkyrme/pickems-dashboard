@@ -42,7 +42,7 @@ const PlayerCard = (props: {
         return(
         <div className="champion-list"> 
             {data.champion_list?.split(',').map((champion_list, index:number) =>  (
-                <img className="champion-list-mini-icon" key={index} alt={champion_list} src={`/static/icons/${champion_list.replace("'", "").replace(/\s/g, "")}_0.jpg`}></img>
+                <img className="champion-list-mini-icon" key={index} alt={champion_list} src={`/static/icons/${champion_list.replace("'", "").replace(/\s/g, "").toLowerCase()}_0.jpg`}></img>
             ))}
         </div>)
     }
@@ -131,7 +131,7 @@ const PlayerCard = (props: {
                 <h2 className="mt-1 mb-1 text-2xl font-bold text-center dark:text-white">{data.props.playername} - {data.props.value}</h2>
             </div>
             
-                        {data.props.champion ? <img className="player-champion-icon" alt={data.props.champion} src={`static/splash/${data.props.champion.replace("'", "")}_0.jpg`}/> : null}
+                        {data.props.champion ? <img className="player-champion-icon" alt={data.props.champion} src={`static/splash/${data.props.champion.replace("'", "").toLowerCase()}_0.jpg`}/> : null}
 
             {data.props.champion_list ? <ChampionList champion_list={data.props.champion_list}></ChampionList> : null}
             {crystal_data.card_name ===  "Highest KDA" ? <KdaInfo props={data.props}></KdaInfo> : null}
@@ -149,7 +149,7 @@ const PlayerCard = (props: {
                 
                 <span className="card-value text-left">{tags.find(tag => tag.name === data.props.teamname)?.tag} {data.props.playername}</span>
                 
-                {data.props.champion ? <img className="mini-icon" alt={data.props.champion} src={`/static/icons/${data.props.champion.replace("'", "").replace(" ", "")}_0.jpg`}/> : null}
+                {data.props.champion ? <img className="mini-icon" alt={data.props.champion} src={`/static/icons/${data.props.champion.replace("'", "").replace(" ", "").toLowerCase()}_0.jpg`}/> : null}
                 <span className="card-value text-right">{crystal_data.value_title !== "Pentakill" ? data.props.value : null}</span>
             </div>
         )
