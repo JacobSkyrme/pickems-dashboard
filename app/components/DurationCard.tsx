@@ -1,16 +1,32 @@
 'use client'
 
 import CardTop from "./CardTop";
-import DragonCard from "./DragonCard";
 import PositionMedals from "./PositionMedals";
 
 
-
-
-const DurationCard = (props: { crystal_data: any; }) => {
+const DurationCard =  (props: {
+    crystal_data: {
+        card_name: string;
+        card_type: string;
+        created_at: string;
+        id: number;
+        value_title?: string;
+        card_data: [{
+            game: number;
+            gameid: string;
+            gamelength: number;
+            id: number;
+            team1_name: string;
+            team1_result: number;
+            team1_side: string;
+            team2_name: string;
+            team2_result: number;
+            team2_side: string;
+        }]
+    }
+}) => {
 
     const {crystal_data} = props
-
 
     const first = crystal_data.card_data[0]
 
@@ -28,7 +44,7 @@ const DurationCard = (props: { crystal_data: any; }) => {
         
         <CardTop 
             image={`/static/team_logos/${first.team1_result === 1 ? first.team1_name.toLowerCase() : first.team2_name.toLowerCase()}.jpg`}
-            value={first ? `${first.team1_result === 1 ? first.team1_name : first.team2_name} - ${length(first.gamelength)}` : null}
+            value={first ? `${first.team1_result === 1 ? first.team1_name : first.team2_name} - ${length(first.gamelength)}` : ""}
         ></CardTop>
         
 

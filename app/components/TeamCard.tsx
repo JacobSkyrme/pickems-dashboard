@@ -3,7 +3,22 @@
 import CardTop from "./CardTop";
 import PositionMedals from "./PositionMedals";
 
-const TeamCard = props => {
+const TeamCard = (props: {
+    crystal_data: {
+        card_name: string;
+        card_type: string;
+        created_at: string;
+        id: number;
+        value_title?: string;
+        card_data: [{
+            teamname: string;
+            value: string | number;
+
+        }]
+    }
+}) => {
+
+
 
     const { crystal_data } = props
 
@@ -23,26 +38,22 @@ const TeamCard = props => {
             last = data.props.value
             position = data.index + 1;
         }
-
-
         return (
             <>
                 {data.index < 1 ?
                     <CardTop
-                        value={data.props.teamname && data.props.value ? data.props.teamname + " - " + data.props.value
-                            : (data.props.teamname ? data.props.teamname
-                                : (data.props.value ? data.props.value : null))}
-                        image={data.props.teamname ? `/static/team_logos/${data.props.teamname}.jpg` : ""}>
-                    </CardTop > : <></>}
+                        value={data.props.teamname && data.props.value ? data.props.teamname + " - " + data.props.value : (data.props.teamname ? data.props.teamname : (data.props.value ? data.props.value : ""))}
+                        image={data.props.teamname ? `/static/team_logos/${data.props.teamname}.jpg` : ""}
+                    ></CardTop > : <></>}
 
                 <div className="card-data-row-wrapper">
-                    <div className="card-data-team-row" key={data.props.index}>
+                    <div className="card-data-team-row" key={data.index}>
                         <span className={"card-value text-center"}>{position < 4 ? <PositionMedals position={position}></PositionMedals> : position}</span>
                         {data.props.teamname ? <img className="mini-icon" alt={data.props.teamname} src={`/static/team_logos/${data.props.teamname.toLowerCase()}.jpg`} /> : null}
                         <span className="card-value text-left">{data.props.teamname}</span>
                         <span className="card-value  text-right"> {data.props.value}</span>
                     </div>
-
+                    d
                 </div>
             </>
 

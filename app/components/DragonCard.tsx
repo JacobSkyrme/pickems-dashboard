@@ -1,6 +1,5 @@
 'use client'
 
-import CardTop from "./CardTop"
 import ChemtechIcon from "./svgs/ChemtechIcon"
 import CloudIcon from "./svgs/CloudIcon"
 import HextechIcon from "./svgs/HextechIcon"

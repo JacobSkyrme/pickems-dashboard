@@ -2,8 +2,25 @@
 
 import PositionMedals from "./PositionMedals";
 
-const PlayerCard = props => {
-
+const PlayerCard = (props: {
+    crystal_data: {
+        card_name: string;
+        card_type: string;
+        created_at: string;
+        id: number;
+        value_title?: string;
+        card_data: [{
+            teamname?: string;
+            playername: string;
+            value: string | number;
+            champion_list?: string;
+            champion?: string;
+            total_assists?: number;
+            total_deaths?: number;
+            total_kills?: number
+        }]
+    }
+}) => {
     const {crystal_data} = props
     
     const tags = [
@@ -16,16 +33,12 @@ const PlayerCard = props => {
         {name: "PSG Talon", tag: "PSG"},
         {name: "Team Whales", tag: "TW"}       
     ]
-    let position = 1;
-    let last = 0;
+    let position:number = 1;
+    let last:string|number = 0;
     let first: string|number;
 
 
-    const ChampionList = (data) =>{
-
-
-
-
+    const ChampionList = (data: {champion_list:string}) =>{
         return(
         <div className="champion-list"> 
             {data.champion_list?.split(',').map((champion_list, index:number) =>  (
@@ -37,7 +50,19 @@ const PlayerCard = props => {
     }
 
 
-    const KdaInfo = (data) => {
+    const KdaInfo = (data: {
+        props:{
+            teamname?: string;
+            playername: string;
+            value: string | number;
+            champion_list?: string;
+            champion?: string;
+            total_assists?: number;
+            total_deaths?: number;
+            total_kills?: number 
+        }
+
+    }) => {
         return(
             <div className="kda-list">
 
@@ -67,7 +92,19 @@ const PlayerCard = props => {
         )
     }
 
-    const CardData = (data) => {
+    const CardData = (data: { 
+        index: number;
+        props: {
+            teamname?: string;
+            playername: string;
+            value: string | number;
+            champion_list?: string;
+            champion?: string;
+            total_assists?: number;
+            total_deaths?: number;
+            total_kills?: number
+        }
+    }) => {
 
 
         if(data.index === 0){

@@ -3,16 +3,43 @@
 import PositionMedals from "./PositionMedals"
 
 
-const ChampionCard = props => {
+const ChampionCard = (props: {
+    crystal_data: {
+        card_name: string;
+        card_type: string;
+        created_at: string;
+        id: number;
+        value_title?: string;
+        card_data: [{
+            teamname?: string;
+            value: string | number;
+            position_list?: string;
+            champion?: string;
+            wins?:number;
+            losses?:number;
+        }]
+    }
+}) => {
 
-    const {crystal_data} = props
+    const { crystal_data } = props
 
     const percentage = crystal_data.id === 10 ? "%" : ""
-    let position = 1;
-    let last = 0;
-    let first;
+    let position:number = 1;
+    let last:string|number = 0;
+    let first: string|number;
 
-    const CardData = (data) => {
+    const CardData = (data: {
+        index: number;
+        props: {
+            teamname?: string;
+            value: string | number;
+            position_list?: string;
+            champion?: string;
+            wins?:number;
+            losses?:number;
+        }
+    }
+    ) => {
 
 
         const positionIcons = [
@@ -42,17 +69,15 @@ const ChampionCard = props => {
                     <div className={position < 4 ? "champion-position-order champion-position-medal" : "champion-position-order champion-position-value"}><span className={"card-value text-left"}>{position < 4 ? <PositionMedals position={position}></PositionMedals> : position}</span></div>
                     {data.props.champion ? <img className="mini-icon" alt={data.props.champion} src={`/static/icons/${data.props.champion.replace("'", "").replace(" ", "")}_0.jpg`}></img> : null}
 
-
-
                     <div className="champion-value-wrapper">
 
-                        {data.props.position_list?.split(', ')?.map((position) => (
+                        {data.props.position_list?.split(', ')?.map((position: string) => (
                             <>
                                 {positionIcons.find(icon => icon.name === position)?.icon}
                             </>
                         ))}
 
-                        {data.props.position_list ? null : <span className="card-value text-right champion-value">{Math.round(data.props.value)}{percentage}{data.props.wins ? ` - ${data.props.wins}/${data.props.losses}` : null}</span>}
+                        {data.props.position_list ? null : <span className="card-value text-right champion-value">{typeof data.props.value === "number" ? Math.round(data.props.value) : ""}{percentage}{data.props.wins ? ` - ${data.props.wins}/${data.props.losses}` : null}</span>}
 
                     </div>
                 </div>
@@ -72,7 +97,7 @@ const ChampionCard = props => {
 
             <div className="card-data-wrapper">
 
-                {crystal_data.card_data?.map((card_data,index) => (
+                {crystal_data.card_data?.map((card_data, index) => (
                     <CardData props={card_data} index={index}></CardData>
                 ))}
             </div>

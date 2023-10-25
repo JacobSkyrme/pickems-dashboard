@@ -2,7 +2,7 @@
 
 type positionMedals = {
     position: number;
-    big: boolean;
+    big?: boolean;
 }
 
 const PositionMedals = (props: positionMedals) =>{
