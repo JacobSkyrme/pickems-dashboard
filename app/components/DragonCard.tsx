@@ -8,7 +8,23 @@ import MountainIcon from "./svgs/MountainIcon"
 import OceanIcon from "./svgs/OceanIcon"
 
 
-const DragonCard = (props) => {
+const DragonCard = (props: {
+    crystal_data: {
+        card_name: string;
+        card_type: string;
+        created_at: string;
+        id: number;
+        value_title?: string;
+        card_data: [{
+            dragon: string;
+            value: number;
+        }]
+    }
+}) => {
+
+
+    console.log(props)
+
 
     const { crystal_data } = props
 
@@ -51,14 +67,17 @@ const DragonCard = (props) => {
 
 
             <div className="grid grid-cols-5 lg:grid-cols-5 gap-2">
-                {crystal_data.card_data?.map((card_data: { dragon: string; value: number }, index: number) => (
-                    <>{index === 0 ? <></> :
-                        <div className="card-data" key={index}>
-                            <DragonIcon class="dragon-icon-small" dragon={card_data.dragon} width={40} height={40}></DragonIcon>
-                            <span className="card-value">{card_data.value}</span>
-                        </div>
-                    }</>
-                ))}
+                {crystal_data.card_data?.map((card_data: { dragon: string; value: number }, index: number) => {
+                    if(index === 0) return null;
+                    else{
+                        return(
+                            <div className="card-data" key={index}>
+                                <DragonIcon class="dragon-icon-small" dragon={card_data.dragon} width={40} height={40}></DragonIcon>
+                                <span className="card-value">{card_data.value}</span>
+                            </div>
+                        )
+                    }
+                })}
             </div>
         </div>
     )
