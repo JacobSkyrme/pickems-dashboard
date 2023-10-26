@@ -23,9 +23,6 @@ const DragonCard = (props: {
 }) => {
 
 
-    console.log(props)
-
-
     const { crystal_data } = props
 
     const first = crystal_data.card_data[0];

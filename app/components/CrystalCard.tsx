@@ -19,8 +19,6 @@ const CrystalCard = (props: {
   }
 }) => {
 
-  console.log(props)
-
   const {crystal_data} = props
 
   if (crystal_data.card_type === "CHAMPION") {
