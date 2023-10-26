@@ -14,12 +14,11 @@ export default async function Index() {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="animate-in flex flex-col gap-14 opacity-0 max-w-full px-3 py-16 lg:py-24 text-foreground">
-
-
-        <div>
-        <h3 className="mb-4 pl-10  text-3xl font-extrabold  md:text-8xl lg:text-8xl dark:text-white">Last Game Data</h3>
-        <div className="card-data-game-row">
+      <div className="animate-in flex flex-col gap-4 opacity-0 max-w-full px-3 py-16 lg:pb-12 lg:pt-24 text-foreground">
+      <h1 className="mb-4 pl-10 text-center  text-6xl font-extrabold  md:text-6xl lg:text-6xl dark:text-white">Worlds 2023 Pickems Tracker</h1>
+        <div className="flex flex-col	max-w-5xl">
+        <div className="last-game-row">
+        <h4 className="text-2xl font-bold md:text-2xl lg:text-2xl dark:text-white">Last Game</h4>
           {lastGame[0].team1_name ? <img className={lastGame[0].team1_result === 1 ? "mini-icon team-win" : "team-icon team-loss"} alt={lastGame[0].team1_name} src={`/static/team_logos/${lastGame[0].team1_name.toLowerCase()}.jpg`} /> : null}
           <span className="card-value text-center">vs</span>
           {lastGame[0].team2_name ? <img className={lastGame[0].team2_result === 1 ? "mini-icon team-win" : "team-icon team-loss"} alt={lastGame[0].team2_name} src={`/static/team_logos/${lastGame[0].team2_name.toLowerCase()}.jpg`} /> : null}
@@ -28,13 +27,18 @@ export default async function Index() {
 
         </div>
 
+
+        <p className="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400 mb-10 justify">
+          Welcome to The Worlds 2023 Pickems Tracker. This website is designed to estimate the Worlds 2023 Crystal Ball results. It should be noted that the information here is an estimation and the final result may be different. All values are automatically calculated from <a href="https://oracleselixir.com/" className="text-white">Oracle Elixer</a> match data. The only data manually entered is baron steals.</p>
+        <p className="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400 mb-10 justify">If you find any issues with the website or want to get in contact, please join our <a className="text-white" href="https://discord.gg/NYAFt98hzk">Discord server.</a></p>
+
         </div>
 
 
 
       </div>
-      <div className="animate-in flex flex-col gap-14 opacity-0 max-w-full px-3 py-16 lg:py-24 text-foreground">
-        <h2 className="mb-4 pl-10  text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Event</h2>
+      <div className="animate-in flex flex-col gap-10 opacity-0 max-w-full px-3 lg:pb-24 text-foreground">
+        <h2 className="mb-4 md:pl-10 xl:p-10  text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Event</h2>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(0, 5).map((crystalCard) => (
@@ -43,7 +47,7 @@ export default async function Index() {
             </li>
           ))}
         </ul>
-        <h2 className="mb-4 pl-10  text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Champions</h2>
+        <h2 className="mb-4 md:pl-10 xl:p-10  text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Champions</h2>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(5, 10).map((crystalCard) => (
@@ -52,7 +56,7 @@ export default async function Index() {
             </li>
           ))}
         </ul>
-        <h2 className="mb-4 pl-10  text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Players</h2>
+        <h2 className="mb-4 md:pl-10 xl:p-10 text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Players</h2>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(10, 15).map((crystalCard) => (
@@ -62,7 +66,7 @@ export default async function Index() {
           ))}
         </ul>
 
-        <h2 className="mb-4 pl-10  text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Teams</h2>
+        <h2 className="mb-4 md:pl-10 xl:p-10 text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Teams</h2>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(15, 20).map((crystalCard) => (

@@ -11,12 +11,6 @@ export default async function ServerAction() {
     // Create a Supabase client configured to use cookies
       const supabase = createServerActionClient({ cookies })
 
-      // This assumes you have a `todos` table in Supabase. Check out
-      // the `Create Table and seed with data` section of the README 👇
-      // https://github.com/vercel/next.js/blob/canary/examples/with-supabase/README.md
-      //6
-
-
 
       //Longest Game
       const { data: longestGame } = await supabase.rpc("longest_game").limit(5)
