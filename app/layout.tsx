@@ -1,4 +1,5 @@
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: 'Worlds 2023 Pickems Tracker',
@@ -15,6 +16,7 @@ export default function RootLayout({
       <body>
         <main className="min-h-screen bg-background flex flex-col items-center text-white">
           {children}
+          <Analytics />
         </main>
       </body>
     </html>
