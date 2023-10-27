@@ -20,6 +20,11 @@
   }
 }
 
+body, .bg-background{
+  background-color: #0f1519;
+  background: #0F1519;
+}
+
 .last-game-row {
   display: grid;
   grid-template-columns: 14ch 40px 20px 40px auto;
