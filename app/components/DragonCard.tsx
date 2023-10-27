@@ -51,14 +51,14 @@ const DragonCard = (props: {
 
     return (
         <div className="card-data-row-wrapper">
-            <h2 className="mb-4 text-2xl font-extrabold text-center md:text-3xl lg:text-3xl dark:text-white">{crystal_data.card_name}</h2>
+            <h2 className="mb-4 text-2xl font-extrabold text-center md:text-3xl lg:text-3xl text-white">{crystal_data.card_name}</h2>
 
             <div className="card-top-wrapper">
 
                 <DragonIcon class="card-main-img" dragon={first.dragon} width={200} height={200}></DragonIcon>
 
                 <div className="main-text-overlay">
-                    <h2 className="mt-1 mb-1 text-2xl font-bold text-center dark:text-white">{first.dragon} - {first.value}</h2>
+                    <h2 className="mt-1 mb-1 text-2xl font-bold text-center text-white">{first.dragon} - {first.value}</h2>
                 </div>
             </div>
 

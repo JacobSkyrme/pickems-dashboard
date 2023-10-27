@@ -92,7 +92,7 @@ const ChampionCard = (props: {
         <>
             <div className="card-top-wrapper">
 
-                <h2 className="mb-4 text-2xl font-extrabold text-center md:text-3xl lg:text-3xl dark:text-white">{crystal_data.card_name}</h2>
+                <h2 className="mb-4 text-2xl font-extrabold text-center md:text-3xl lg:text-3xl text-white">{crystal_data.card_name}</h2>
             </div>
 
             <div className="card-data-wrapper">

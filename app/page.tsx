@@ -14,14 +14,14 @@ export default async function Index() {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <div className="animate-in flex flex-col gap-4 opacity-0 max-w-full px-3 py-16 lg:pb-12 lg:pt-24 text-foreground">
-      <h1 className="mb-4 pl-10 text-center  text-6xl font-extrabold  md:text-6xl lg:text-6xl dark:text-white">Worlds 2023 Pickems Tracker</h1>
+      <div className="animate-in flex flex-col gap-4 opacity-0 max-w-full px-3 py-16 lg:pb-12 lg:pt-24 text-white">
+      <h1 className="mb-4 pl-10 text-center  text-6xl font-extrabold md:text-6xl lg:text-6xl text-white">Worlds 2023 Pickems Tracker</h1>
         <div className="flex flex-col	max-w-5xl">
         <div className="last-game-row">
-        <h4 className="text-2xl font-bold md:text-2xl lg:text-2xl dark:text-white">Last Game</h4>
-          {lastGame[0].team1_name ? <img className={lastGame[0].team1_result === 1 ? "mini-icon team-win" : "team-icon team-loss"} alt={lastGame[0].team1_name} src={`/static/team_logos/${lastGame[0].team1_name.toLowerCase()}.jpg`} /> : null}
+        <h4 className="text-2xl font-bold md:text-2xl lg:text-2xl text-white">Last Game</h4>
+          {lastGame[0].team1_name ? <img className={lastGame[0].team1_result === 1 ? "mini-icon team-win text-white" : "team-icon team-loss text-white"} alt={lastGame[0].team1_name} src={`/static/team_logos/${lastGame[0].team1_name.toLowerCase()}.jpg`} /> : null}
           <span className="card-value text-center">vs</span>
-          {lastGame[0].team2_name ? <img className={lastGame[0].team2_result === 1 ? "mini-icon team-win" : "team-icon team-loss"} alt={lastGame[0].team2_name} src={`/static/team_logos/${lastGame[0].team2_name.toLowerCase()}.jpg`} /> : null}
+          {lastGame[0].team2_name ? <img className={lastGame[0].team2_result === 1 ? "mini-icon team-win text-white" : "team-icon team-loss text-white"} alt={lastGame[0].team2_name} src={`/static/team_logos/${lastGame[0].team2_name.toLowerCase()}.jpg`} /> : null}
 
           <span className="text-left font-bold">Game {lastGame[0].game}</span>
 
@@ -37,40 +37,40 @@ export default async function Index() {
 
 
       </div>
-      <div className="animate-in flex flex-col gap-10 opacity-0 max-w-full px-3 lg:pb-24 text-foreground">
-        <h2 className="mb-4 md:pl-10 xl:p-10  text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Event</h2>
+      <div className="animate-in flex flex-col gap-10 opacity-0 max-w-full px-3 lg:pb-24 text-white">
+        <h2 className="mb-4 md:pl-10 xl:p-10  text-4xl font-extrabold  md:text-6xl lg:text-8xl text-white">Event</h2>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(0, 5).map((crystalCard) => (
-            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
+            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-white card-border" key={crystalCard.id}>
               <CrystalCard crystal_data={crystalCard}></CrystalCard>
             </li>
           ))}
         </ul>
-        <h2 className="mb-4 md:pl-10 xl:p-10  text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Champions</h2>
+        <h2 className="mb-4 md:pl-10 xl:p-10  text-4xl font-extrabold  md:text-6xl lg:text-8xl text-white">Champions</h2>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(5, 10).map((crystalCard) => (
-            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
+            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-white" key={crystalCard.id}>
               <CrystalCard crystal_data={crystalCard}></CrystalCard>
             </li>
           ))}
         </ul>
-        <h2 className="mb-4 md:pl-10 xl:p-10 text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Players</h2>
+        <h2 className="mb-4 md:pl-10 xl:p-10 text-4xl font-extrabold  md:text-6xl lg:text-8xl text-white">Players</h2>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(10, 15).map((crystalCard) => (
-            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
+            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-white" key={crystalCard.id}>
               <CrystalCard crystal_data={crystalCard}></CrystalCard>
             </li>
           ))}
         </ul>
 
-        <h2 className="mb-4 md:pl-10 xl:p-10 text-4xl font-extrabold  md:text-6xl lg:text-8xl dark:text-white">Teams</h2>
+        <h2 className="mb-4 md:pl-10 xl:p-10 text-4xl font-extrabold  md:text-6xl lg:text-8xl text-white">Teams</h2>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 gap-4">
           {crystalCards?.slice(15, 20).map((crystalCard) => (
-            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-foreground" key={crystalCard.id}>
+            <li className="max-w-sm relative flex flex-col group rounded-lg border p-4 hover:border-white" key={crystalCard.id}>
               <CrystalCard crystal_data={crystalCard}></CrystalCard>
             </li>
           ))}
