@@ -10,8 +10,6 @@ export default async function Index() {
 
   const { data: lastGame } = await supabase.rpc("last_game").limit(1)
 
-
-
   return (
     <div className="w-full flex flex-col items-center">
       <div className="animate-in flex flex-col gap-4 opacity-0 max-w-full px-3 py-16 lg:pb-12 lg:pt-24 text-white">

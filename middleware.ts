@@ -13,5 +13,10 @@ export async function middleware(req: NextRequest) {
   // https://supabase.com/docs/guides/auth/auth-helpers/nextjs#managing-session-with-middleware
   await supabase.auth.getSession()
 
+  console.log(req.url);
   return res
 }
+
+export const config = {
+  matcher: ["/((?!.*\\.).*)", "/favicon.ico"],
+};

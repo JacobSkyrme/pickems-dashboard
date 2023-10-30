@@ -1,4 +1,4 @@
-
+'use client'
 
 type CardTop = {
     value?: string | number;
