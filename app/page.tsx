@@ -10,8 +10,6 @@ export default async function Index() {
 
   const { data: lastGame } = await supabase.rpc("last_game").limit(1)
 
-
-
   return (
     <div className="w-full flex flex-col items-center">
       <div className="animate-in flex flex-col gap-4 opacity-0 max-w-full px-3 py-16 lg:pb-12 lg:pt-24 text-white">
@@ -30,7 +28,7 @@ export default async function Index() {
 
         <p className="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400 mb-10 justify">
           Welcome to The Worlds 2023 Pickems Tracker. This website is designed to estimate the Worlds 2023 Crystal Ball results. It should be noted that the information here is an estimation and the final result may be different. All values are automatically calculated from <a href="https://oracleselixir.com/" className="text-white">Oracle Elixer</a> match data. The only data manually entered is baron steals.</p>
-        <p className="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400 mb-10 justify">If you find any issues with the website or want to get in contact, please join our <a className="text-white" href="https://discord.gg/NYAFt98hzk">Discord server.</a></p>
+        <p className="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400 mb-10 justify">If you find any issues with the website or want to get in contact, add me on Discord <a className="text-white" href="https://discordapp.com/users/110860877464383488 ">Tog</a></p>
 
         </div>
 
