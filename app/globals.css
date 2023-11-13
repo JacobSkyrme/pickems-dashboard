@@ -249,7 +249,7 @@ body, .bg-background{
 
 .champion-list{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-column: 3/6;
   grid-row: 2;
   max-height: 180px;
