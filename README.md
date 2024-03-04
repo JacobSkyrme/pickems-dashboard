@@ -1,4 +1,4 @@
-<h1>Pickems Tracker<h2>
+<h1>Pickems Tracker</h1>
   
 <p><a href="https://www.pickemstracker.com">Project can be seen here.</a></p>
 
