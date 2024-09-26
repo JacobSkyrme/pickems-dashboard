@@ -17,10 +17,6 @@ export default function RootLayout({
       <head>
       </head>
       <body>
-        <nav>
-          <Link href="/">Home</Link>
-          <Link href="/worlds2024"></Link>
-        </nav>
         <main className="min-h-screen bg-background flex flex-col items-center text-white">
           {children}
         </main>
