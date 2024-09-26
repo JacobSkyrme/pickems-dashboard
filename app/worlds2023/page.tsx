@@ -7,14 +7,14 @@ export default async function Index() {
   const cookieStore = cookies()
   const supabase = createServerComponentClient({ cookies: () => cookieStore })
 
-  const { data: crystalCards } = await supabase.from("crystal-cards-2024").select().order('id', { ascending: true })
+  const { data: crystalCards } = await supabase.from("crystal-cards").select().order('id', { ascending: true })
 
   const { data: lastGame } = await supabase.rpc("last_game").limit(1)
 
   return (
     <div className="w-full flex flex-col items-center">
       <div className="animate-in flex flex-col gap-4 opacity-0 max-w-full px-3 py-16 lg:pb-12 lg:pt-24 text-white">
-      <h1 className="mb-4 pl-10 text-center  text-6xl font-extrabold md:text-6xl lg:text-6xl text-white">Worlds 2024 Pickems Tracker</h1>
+      <h1 className="mb-4 pl-10 text-center  text-6xl font-extrabold md:text-6xl lg:text-6xl text-white">Worlds 2023 Pickems Tracker</h1>
         <div className="flex flex-col	max-w-5xl">
         <div className="last-game-row">
         <h4 className="text-2xl font-bold md:text-2xl lg:text-2xl text-white">Last Game</h4>
@@ -28,18 +28,15 @@ export default async function Index() {
 
 
         <p className="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400 mb-10 justify">
-          Welcome to The Worlds 2024 Pickems Tracker. This website is designed to estimate the Worlds 2024 Crystal Ball results. It should be noted that the information here is an estimation and the final result may be different. All values are automatically calculated from <a href="https://oracleselixir.com/" className="text-white">Oracle Elixer</a> match data. The only data manually entered is baron steals.</p>
-        <p className="mb-3 text-lg text-gray-500 md:text-xl dark:text-gray-400 mb-10 justify">Created by Tog. <a className="text-white" href="https://discord.gg/TugQpTscGr">join this Discord if you have any questions or want to reach me!</a></p>
-        
-        <div className="flex justify-center">
+          Welcome to The Worlds 2023 Pickems Tracker. This website is designed to estimate the Worlds 2023 Crystal Ball results. It should be noted that the information here is an estimation and the final result may be different. All values are automatically calculated from <a href="https://oracleselixir.com/" className="text-white">Oracle Elixer</a> match data. The only data manually entered is baron steals.</p>
+          <div className="flex justify-center">
           <div className="max-w-sm mx-1 relative snap-center flex flex-col group rounded-lg border p-4 hover:border-white card-border">
-            <Link href="/worlds2023">Worlds 2023 Pickems</Link>
+            <Link href="/">Worlds 2023 Pickems</Link>
           </div>
           <div className="max-w-sm mx-1 relative snap-center flex flex-col group rounded-lg border p-4 hover:border-white card-border">
-            <Link href="/">Worlds 2024 Pickems</Link>
+            <Link href="../">Worlds 2024 Pickems</Link>
           </div>
         </div>
-        
         </div>
 
 
@@ -86,7 +83,7 @@ export default async function Index() {
 
       </div>
 
-      <p className="p-3 text-gray-500 dark:text-gray-400 text-center">Copyright © 2024 - Pickems Tracker</p>
+      <p className="p-3 text-gray-500 dark:text-gray-400 text-center">Copyright © 2023 - Pickems Tracker</p>
 
       <p className="p-3 text-gray-500 dark:text-gray-400 text-center">Pickems Tracker is not endorsed by Riot Games.</p>
       <p className="p-3 text-gray-500 dark:text-gray-400 text-center">This data is an estimation of the pickems results. There may be inaccuracies  in the calculation and data submission process.</p>

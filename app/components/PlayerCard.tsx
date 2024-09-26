@@ -116,7 +116,7 @@ const PlayerCard = (props: {
             last = data.props.value
             position = data.index + 1;
         }
-        if((data.props.value === first || data.index < 3) && (crystal_data.card_name !== "Total Pentakills" && crystal_data.card_name !== "Baron Steals" )){
+        if((data.index < 3) && (crystal_data.card_name !== "Total Pentakills" && crystal_data.card_name !== "Baron Steals" )){
 
 
             return(
