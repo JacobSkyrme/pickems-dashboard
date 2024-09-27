@@ -1,3 +1,5 @@
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 import './globals.css'
 import Link from 'next/link'
 
@@ -19,6 +21,7 @@ export default function RootLayout({
       <body>
         <main className="min-h-screen bg-background flex flex-col items-center text-white">
           {children}
+          <GoogleAnalytics gaId="G-RPXC8FWYH9" />
         </main>
       </body>
     </html>
